@@ -1,5 +1,6 @@
 #!/bin/bash
-# Extrai usuário e método (ssh/local) de falhas
+# Loop no awk para encontrar o usuário e operador ternário para 
+# identificar se o método foi SSH ou autenticação local/direta.
 grep "Failed password" /var/log/auth.log | awk '{
   u="desconhecido"; 
   for(i=1;i<=NF;i++) if($i=="for") u=$(i+1);
